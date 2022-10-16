@@ -43,7 +43,7 @@ import edu.byu.ece.rapidSmith.design.Design;
 import edu.byu.ece.rapidSmith.design.explorer.FilterWindow.FilterType;
 import edu.byu.ece.rapidSmith.device.Device;
 import edu.byu.ece.rapidSmith.device.WireEnumerator;
-import edu.byu.ece.rapidSmith.gui.FileFilters;
+import edu.byu.ece.rapidSmith.gui.FileNameFilters;
 import edu.byu.ece.rapidSmith.timing.PathDelay;
 import edu.byu.ece.rapidSmith.timing.PathOffset;
 import edu.byu.ece.rapidSmith.timing.TraceReportParser;
@@ -197,7 +197,7 @@ public class DesignExplorer extends QMainWindow{
 	 */
 	protected void openDesign(){
 		String fileName = QFileDialog.getOpenFileName(this, "Choose a file...",
-				".", FileFilters.xdlFilter);
+				".", FileNameFilters.xdlFilter).result;
 		if(fileName.endsWith(".xdl")){
 			internalOpenDesign(fileName);
 		}
@@ -208,7 +208,7 @@ public class DesignExplorer extends QMainWindow{
 	 */
 	protected void loadDesignTimingInfo(){
 		String fileName = QFileDialog.getOpenFileName(this, "Choose corresponding timing report...",
-				".", FileFilters.twrFilter);
+				".", FileNameFilters.twrFilter).result;
 		if(fileName.endsWith(".twr")){
 			internalLoadDesignTimingInfo(fileName);
 		}

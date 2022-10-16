@@ -18,14 +18,15 @@
  */
 package edu.byu.ece.rapidSmith.design.explorer;
 
-import com.trolltech.qt.core.Qt.MouseButton;
-import com.trolltech.qt.core.Qt.PenStyle;
-import com.trolltech.qt.gui.QColor;
-import com.trolltech.qt.gui.QGraphicsPathItem;
-import com.trolltech.qt.gui.QGraphicsSceneHoverEvent;
-import com.trolltech.qt.gui.QGraphicsSceneMouseEvent;
-import com.trolltech.qt.gui.QPainterPath;
-import com.trolltech.qt.gui.QPen;
+import io.qt.core.Qt;
+import io.qt.core.Qt.MouseButton;
+import io.qt.core.Qt.PenStyle;
+import io.qt.gui.QColor;
+import io.qt.widgets.QGraphicsPathItem;
+import io.qt.widgets.QGraphicsSceneHoverEvent;
+import io.qt.widgets.QGraphicsSceneMouseEvent;
+import io.qt.gui.QPainterPath;
+import io.qt.gui.QPen;
 
 import edu.byu.ece.rapidSmith.timing.PathDelay;
 
@@ -34,9 +35,9 @@ public class PathItem extends QGraphicsPathItem implements Comparable{
 	/** Keeps a green pen handy for selected wire connections on mouse over */
 	private static QPen selectedPen  = new QPen(QColor.fromRgb(255, 125, 0), 1.5, PenStyle.SolidLine);
 	/** Keeps a red pen handy for highlighting wire connections on mouse over */
-	private static QPen highlighted  = new QPen(QColor.red, 1.0, PenStyle.SolidLine);
+	private static QPen highlighted  = new QPen(new QColor(Qt.GlobalColor.red), 1.0, PenStyle.SolidLine);
 	/** Keeps a yellow pen for drawing the wire connections */
-	private static QPen unHighlighted = new QPen(QColor.yellow, 1.0, PenStyle.SolidLine);
+	private static QPen unHighlighted = new QPen(new QColor(Qt.GlobalColor.yellow), 1.0, PenStyle.SolidLine);
 	
 	private QPen constraintPen;
 	

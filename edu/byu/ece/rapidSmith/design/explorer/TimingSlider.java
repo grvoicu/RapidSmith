@@ -18,8 +18,8 @@
  */
 package edu.byu.ece.rapidSmith.design.explorer;
 
-import com.trolltech.qt.gui.QLineEdit;
-import com.trolltech.qt.gui.QSlider;
+import io.qt.widgets.QLineEdit;
+import io.qt.widgets.QSlider;
 
 public class TimingSlider extends QSlider{
 

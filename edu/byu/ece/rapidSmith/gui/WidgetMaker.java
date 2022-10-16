@@ -20,9 +20,9 @@ package edu.byu.ece.rapidSmith.gui;
 
 import java.util.HashMap;
 
-import com.trolltech.qt.core.Qt.ItemDataRole;
-import com.trolltech.qt.gui.QTreeWidget;
-import com.trolltech.qt.gui.QTreeWidgetItem;
+import io.qt.core.Qt.ItemDataRole;
+import io.qt.widgets.QTreeWidget;
+import io.qt.widgets.QTreeWidgetItem;
 
 import edu.byu.ece.rapidSmith.util.FamilyType;
 import edu.byu.ece.rapidSmith.util.FileTools;

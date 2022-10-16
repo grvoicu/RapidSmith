@@ -22,22 +22,23 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.TreeSet;
 
-import com.trolltech.qt.core.QPointF;
-import com.trolltech.qt.core.QRectF;
-import com.trolltech.qt.core.QSize;
-import com.trolltech.qt.core.QSizeF;
-import com.trolltech.qt.core.Qt.PenStyle;
-import com.trolltech.qt.gui.QBrush;
-import com.trolltech.qt.gui.QColor;
-import com.trolltech.qt.gui.QGraphicsPixmapItem;
-import com.trolltech.qt.gui.QGraphicsRectItem;
-import com.trolltech.qt.gui.QGraphicsScene;
-import com.trolltech.qt.gui.QGraphicsSceneMouseEvent;
-import com.trolltech.qt.gui.QImage;
-import com.trolltech.qt.gui.QPainter;
-import com.trolltech.qt.gui.QPen;
-import com.trolltech.qt.gui.QPixmap;
-import com.trolltech.qt.gui.QImage.Format;
+import io.qt.core.QPointF;
+import io.qt.core.QRectF;
+import io.qt.core.QSize;
+import io.qt.core.QSizeF;
+import io.qt.core.Qt.GlobalColor;
+import io.qt.core.Qt.PenStyle;
+import io.qt.gui.QBrush;
+import io.qt.gui.QColor;
+import io.qt.widgets.QGraphicsPixmapItem;
+import io.qt.widgets.QGraphicsRectItem;
+import io.qt.widgets.QGraphicsScene;
+import io.qt.widgets.QGraphicsSceneMouseEvent;
+import io.qt.gui.QImage;
+import io.qt.gui.QPainter;
+import io.qt.gui.QPen;
+import io.qt.gui.QPixmap;
+import io.qt.gui.QImage.Format;
 
 import edu.byu.ece.rapidSmith.design.Design;
 import edu.byu.ece.rapidSmith.device.Device;
@@ -54,7 +55,7 @@ public class TileScene extends QGraphicsScene{
 	/** The actual square used to highlight a tile */
 	public QGraphicsRectItem highlit;
 	/** Pen used to draw tile cursor */
-	public QPen cursorPen = new QPen(QColor.yellow, 2);
+	public QPen cursorPen = new QPen(new QColor(GlobalColor.yellow), 2);
 	/** The current X location of the mouse */
 	public int currX;
 	/** The current Y location of the mouse */
@@ -80,9 +81,9 @@ public class TileScene extends QGraphicsScene{
 	/** The device corresponding to this scene */
 	public Device device;
 	/** The signal which updates the status bar */
-	public Signal2<String, Tile> updateStatus = new Signal2<String, Tile>();
+	public final Signal2<String, Tile> updateStatus = new Signal2<String, Tile>();
 	/** The signal which is made when a mouse button is pressed */
-	public Signal0 mousePressed = new Signal0();
+	public final Signal0 mousePressed = new Signal0();
 	/** The current design associated with this scene */
 	private Design design;
 	/** This is the actual image shown in the scene of the FPGA fabric */
@@ -167,14 +168,14 @@ public class TileScene extends QGraphicsScene{
 	}
 	
 	private void drawFPGAFabric(boolean drawPrimitives){
-		setBackgroundBrush(new QBrush(QColor.black));
+		setBackgroundBrush(new QBrush(new QColor(GlobalColor.black)));
 		
 		//Create transparent QPixmap that accepts hovers 
 		//  so that moveMouseEvent is triggered
 		QPixmap pixelMap = new QPixmap(sceneSize);
-		pixelMap.fill(QColor.transparent);
+		pixelMap.fill(new QColor(GlobalColor.transparent));
 		QGraphicsPixmapItem background = addPixmap(pixelMap);
-		background.setAcceptsHoverEvents(true);
+		background.setAcceptHoverEvents(true);
 		background.setZValue(-1);
 		
 		// Draw colored tiles onto QPixMap
@@ -218,7 +219,7 @@ public class TileScene extends QGraphicsScene{
 		cols = cols-colsToSkip.size();
 		
 		//Draw dashed lines where rows/columns have been removed
-		QPen missingTileLinePen = new QPen(QColor.lightGray, 2, PenStyle.DashLine);
+		QPen missingTileLinePen = new QPen(new QColor(GlobalColor.lightGray), 2, PenStyle.DashLine);
 		painter.setPen(missingTileLinePen);
 		i = 0;
 		for(int col : colsToSkip){

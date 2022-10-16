@@ -18,9 +18,9 @@
  */
 package edu.byu.ece.rapidSmith.gui;
 
-import com.trolltech.qt.gui.QFont;
-import com.trolltech.qt.gui.QGraphicsRectItem;
-import com.trolltech.qt.gui.QGraphicsTextItem;
+import io.qt.gui.QFont;
+import io.qt.widgets.QGraphicsRectItem;
+import io.qt.widgets.QGraphicsTextItem;
 
 import edu.byu.ece.rapidSmith.device.Tile;
 

@@ -18,19 +18,19 @@
  */
 package edu.byu.ece.rapidSmith.gui;
 
-import com.trolltech.qt.gui.QFileDialog.Filter;
+import io.qt.core.QObject;
 
-public class FileFilters {
+public class FileNameFilters {
 	/** Xilinx Design Language File Filter */
-	public static Filter xdlFilter = new Filter("Xilinx Design Language Files (*.xdl)");
+	public static String xdlFilter = QObject.tr("Xilinx Design Language Files (*.xdl)");
 	/** Native Circuit Description File Filter */
-	public static Filter ncdFilter = new Filter("Design Files (*.ncd)");
+	public static String ncdFilter = QObject.tr("Design Files (*.ncd)");
 	/** Hard Macro File Filter */
-	public static Filter nmcFilter = new Filter("Hard Macro Files (*.nmc)");
+	public static String nmcFilter = QObject.tr("Hard Macro Files (*.nmc)");
 	/** Portable Document Format File Filter */
-	public static Filter pdfFilter = new Filter("Portable Document Format Files (*.pdf)");
+	public static String pdfFilter = QObject.tr("Portable Document Format Files (*.pdf)");
 	/** Xilinx Trace Report File Filter */
-	public static Filter twrFilter = new Filter("Xilinx Trace Report Files (*.twr)");
+	public static String twrFilter = QObject.tr("Xilinx Trace Report Files (*.twr)");
 	/** EDK Microprocessor Hardware Specification File Filter */
-	public static Filter mhsFilter = new Filter("Microprocessor Hardware Specification Files (*.mhs)");
+	public static String mhsFilter = QObject.tr("Microprocessor Hardware Specification Files (*.mhs)");
 }

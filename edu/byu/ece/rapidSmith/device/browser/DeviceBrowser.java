@@ -20,19 +20,19 @@ package edu.byu.ece.rapidSmith.device.browser;
 
 import java.util.ArrayList;
 
-import com.trolltech.qt.core.QModelIndex;
-import com.trolltech.qt.core.Qt.DockWidgetArea;
-import com.trolltech.qt.core.Qt.ItemDataRole;
-import com.trolltech.qt.core.Qt.SortOrder;
-import com.trolltech.qt.gui.QApplication;
-import com.trolltech.qt.gui.QDockWidget;
-import com.trolltech.qt.gui.QLabel;
-import com.trolltech.qt.gui.QMainWindow;
-import com.trolltech.qt.gui.QStatusBar;
-import com.trolltech.qt.gui.QTreeWidget;
-import com.trolltech.qt.gui.QTreeWidgetItem;
-import com.trolltech.qt.gui.QWidget;
-import com.trolltech.qt.gui.QDockWidget.DockWidgetFeature;
+import io.qt.core.QModelIndex;
+import io.qt.core.Qt.DockWidgetArea;
+import io.qt.core.Qt.ItemDataRole;
+import io.qt.core.Qt.SortOrder;
+import io.qt.widgets.QApplication;
+import io.qt.widgets.QDockWidget;
+import io.qt.widgets.QLabel;
+import io.qt.widgets.QMainWindow;
+import io.qt.widgets.QStatusBar;
+import io.qt.widgets.QTreeWidget;
+import io.qt.widgets.QTreeWidgetItem;
+import io.qt.widgets.QWidget;
+import io.qt.widgets.QDockWidget.DockWidgetFeature;
 
 import edu.byu.ece.rapidSmith.device.Device;
 import edu.byu.ece.rapidSmith.device.PrimitiveSite;
@@ -85,7 +85,6 @@ public class DeviceBrowser extends QMainWindow{
 	 * @param args
 	 */
 	public static void main(String[] args){
-		QApplication.setGraphicsSystem("raster");
 		QApplication.initialize(args);
 		DeviceBrowser testPTB = new DeviceBrowser(null);
 		testPTB.show();

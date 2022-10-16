@@ -21,16 +21,16 @@ package edu.byu.ece.rapidSmith.design.explorer;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import com.trolltech.qt.core.QSize;
-import com.trolltech.qt.core.Qt.AspectRatioMode;
-import com.trolltech.qt.core.Qt.Orientation;
-import com.trolltech.qt.gui.QGraphicsScene;
-import com.trolltech.qt.gui.QGraphicsView;
-import com.trolltech.qt.gui.QGridLayout;
-import com.trolltech.qt.gui.QLabel;
-import com.trolltech.qt.gui.QLineEdit;
-import com.trolltech.qt.gui.QSplitter;
-import com.trolltech.qt.gui.QWidget;
+import io.qt.core.QSize;
+import io.qt.core.Qt.AspectRatioMode;
+import io.qt.core.Qt.Orientation;
+import io.qt.widgets.QGraphicsScene;
+import io.qt.widgets.QGraphicsView;
+import io.qt.widgets.QGridLayout;
+import io.qt.widgets.QLabel;
+import io.qt.widgets.QLineEdit;
+import io.qt.widgets.QSplitter;
+import io.qt.widgets.QWidget;
 
 import edu.byu.ece.rapidSmith.design.Design;
 import edu.byu.ece.rapidSmith.design.ModuleInstance;

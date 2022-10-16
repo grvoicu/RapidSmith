@@ -20,30 +20,32 @@ package edu.byu.ece.rapidSmith.design.explorer;
 
 import java.util.ArrayList;
 
-import com.trolltech.qt.core.QAbstractItemModel;
-import com.trolltech.qt.core.QModelIndex;
-import com.trolltech.qt.core.QObject;
-import com.trolltech.qt.core.QRegExp;
-import com.trolltech.qt.core.Qt;
-import com.trolltech.qt.core.Qt.CursorShape;
-import com.trolltech.qt.core.Qt.Orientation;
-import com.trolltech.qt.gui.QBrush;
-import com.trolltech.qt.gui.QCheckBox;
-import com.trolltech.qt.gui.QColor;
-import com.trolltech.qt.gui.QComboBox;
-import com.trolltech.qt.gui.QCursor;
-import com.trolltech.qt.gui.QFont;
-import com.trolltech.qt.gui.QGridLayout;
-import com.trolltech.qt.gui.QItemSelectionModel;
-import com.trolltech.qt.gui.QLabel;
-import com.trolltech.qt.gui.QLineEdit;
-import com.trolltech.qt.gui.QSortFilterProxyModel;
-import com.trolltech.qt.gui.QStandardItem;
-import com.trolltech.qt.gui.QStandardItemModel;
-import com.trolltech.qt.gui.QTreeView;
-import com.trolltech.qt.gui.QWidget;
-import com.trolltech.qt.gui.QAbstractItemView.EditTrigger;
-import com.trolltech.qt.gui.QAbstractItemView.ScrollHint;
+import io.qt.core.QAbstractItemModel;
+import io.qt.core.QModelIndex;
+import io.qt.core.QObject;
+import io.qt.core.QRegularExpression;
+import io.qt.core.QRegularExpressionMatch;
+import io.qt.core.Qt;
+import io.qt.core.QRegularExpression.PatternOption;
+import io.qt.core.Qt.CursorShape;
+import io.qt.core.Qt.Orientation;
+import io.qt.gui.QBrush;
+import io.qt.widgets.QCheckBox;
+import io.qt.gui.QColor;
+import io.qt.widgets.QComboBox;
+import io.qt.gui.QCursor;
+import io.qt.gui.QFont;
+import io.qt.widgets.QGridLayout;
+import io.qt.core.QItemSelectionModel;
+import io.qt.widgets.QLabel;
+import io.qt.widgets.QLineEdit;
+import io.qt.core.QSortFilterProxyModel;
+import io.qt.gui.QStandardItem;
+import io.qt.gui.QStandardItemModel;
+import io.qt.widgets.QTreeView;
+import io.qt.widgets.QWidget;
+import io.qt.widgets.QAbstractItemView.EditTrigger;
+import io.qt.widgets.QAbstractItemView.ScrollHint;
 
 import edu.byu.ece.rapidSmith.design.Attribute;
 import edu.byu.ece.rapidSmith.design.Instance;
@@ -98,7 +100,7 @@ public class FilterWindow extends QWidget{
 	/** A font used for hyperlinks */
 	private QFont hyperlink = new QFont();
 	/** A brush used for hyperlinks */
-	private QBrush blue = new QBrush(QColor.blue);
+	private QBrush blue = new QBrush(new QColor(Qt.GlobalColor.blue));
 	
 	/** Helps differentiate tab windows */
 	enum FilterType {
@@ -149,12 +151,10 @@ public class FilterWindow extends QWidget{
         filterPatternLabel.setBuddy(filterPatternLineEdit);
 
         filterSyntaxComboBox = new QComboBox();
-        filterSyntaxComboBox.addItem(tr("Regular expression"),
-                                     QRegExp.PatternSyntax.RegExp);
-        filterSyntaxComboBox.addItem(tr("Wildcard"),
-                                     QRegExp.PatternSyntax.Wildcard);
-        filterSyntaxComboBox.addItem(tr("Fixed string"),
-                                     QRegExp.PatternSyntax.FixedString);
+		// TODO: Support wildcard and fixed string filtering. Only regexp works now.
+        filterSyntaxComboBox.addItem(tr("Regular expression"), "regexp");
+        filterSyntaxComboBox.addItem(tr("Wildcard"), "wildcard");
+        filterSyntaxComboBox.addItem(tr("Fixed string"), "fixed_string");
         
         filterCaseSensitivityCheckBox = new QCheckBox(tr("Case sensitive"));
         filterCaseSensitivityCheckBox.setChecked(true);
@@ -653,19 +653,19 @@ public class FilterWindow extends QWidget{
 	 * the table entries.
 	 */
 	private void textFilterChanged(){
-        QRegExp.PatternSyntax syntax;
-        int index = filterSyntaxComboBox.currentIndex();
-        syntax = (QRegExp.PatternSyntax) filterSyntaxComboBox.itemData(index);
+		// TODO: Use filterSyntax to support wildcard and fixedString searches.
+        // int index = filterSyntaxComboBox.currentIndex();
+        // Object filterSyntax = filterSyntaxComboBox.itemData(index);
 
-        Qt.CaseSensitivity caseSensitivity;
+		PatternOption patternOption;
         if (filterCaseSensitivityCheckBox.isChecked())
-            caseSensitivity = Qt.CaseSensitivity.CaseSensitive;
+			patternOption = PatternOption.NoPatternOption;
         else
-            caseSensitivity = Qt.CaseSensitivity.CaseInsensitive;
+			patternOption = PatternOption.CaseInsensitiveOption;
 
-        QRegExp regExp = new QRegExp(filterPatternLineEdit.text(),
-                                     caseSensitivity, syntax);
-        proxyModel.setFilterRegExp(regExp);
+        QRegularExpression regExp = new QRegularExpression(filterPatternLineEdit.text(),
+														   patternOption);
+        proxyModel.setFilterRegularExpression(regExp);
     }
 	
 	/**
@@ -678,13 +678,13 @@ public class FilterWindow extends QWidget{
         }
         @Override
         protected boolean filterAcceptsRow(int sourceRow, QModelIndex sourceParent){
-            QRegExp filter = filterRegExp();
+            QRegularExpression filter = filterRegularExpression();
             QAbstractItemModel model = sourceModel();
             boolean matchFound = false;
 
             for(int i=0; i < model.columnCount(); i++){
             	Object data = model.data(sourceModel().index(sourceRow, i, sourceParent));
-            	matchFound |= data != null && filter.indexIn(data.toString()) != -1;
+            	matchFound |= data != null && filter.match(data.toString()).hasMatch();
             }
             return matchFound;
         }
@@ -695,15 +695,19 @@ public class FilterWindow extends QWidget{
             Object leftData = sourceModel().data(left);
             Object rightData = sourceModel().data(right);
 
-            QRegExp emailPattern = new QRegExp("([\\w\\.]*@[\\w\\.]*)");
+            QRegularExpression emailPattern = new QRegularExpression("([\\w\\.]*@[\\w\\.]*)");
 
             String leftString = leftData.toString();
-            if(left.column() == 1 && emailPattern.indexIn(leftString) != -1)
-                leftString = emailPattern.cap(1);
+            if(left.column() == 1) {
+				QRegularExpressionMatch match = emailPattern.match(leftString);
+				if (match.hasMatch()) leftString = match.captured(1);
+			}
 
             String rightString = rightData.toString();
-            if(right.column() == 1 && emailPattern.indexIn(rightString) != -1)
-                rightString = emailPattern.cap(1);
+            if(right.column() == 1) {
+				QRegularExpressionMatch match = emailPattern.match(rightString);
+				if (match.hasMatch()) rightString = match.captured(1);
+			}
 
             result = leftString.compareTo(rightString) < 0;
             return result;

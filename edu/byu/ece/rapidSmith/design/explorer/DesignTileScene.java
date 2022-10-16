@@ -47,14 +47,14 @@ public class DesignTileScene extends TileScene {
 	public DesignTileScene(){
 		super();
 		currLines = new ArrayList<PathItem>();
-		wirePen = new QPen(QColor.yellow, 0.75, PenStyle.SolidLine);
+		wirePen = new QPen(new QColor(Qt.GlobalColor.yellow), 0.75, PenStyle.SolidLine);
 	}
 	
 	public DesignTileScene(Device device, WireEnumerator we, boolean hideTiles, boolean drawPrimitives){
 		super(device, hideTiles, drawPrimitives);
 		setWireEnumerator(we);
 		currLines = new ArrayList<PathItem>();
-		wirePen = new QPen(QColor.yellow, 0.25, PenStyle.SolidLine);
+		wirePen = new QPen(new QColor(Qt.GlobalColor.yellow), 0.25, PenStyle.SolidLine);
 	}
 	
 	
@@ -72,7 +72,7 @@ public class DesignTileScene extends TileScene {
 			path.lineTo(x2, y2);
 		}
 		PathItem item = new PathItem(path, pd);
-		item.setBrush(QBrush.NoBrush);
+		item.setBrush(new QBrush(Qt.BrushStyle.NoBrush));
 		item.setPen(wirePen);
 		item.setAcceptHoverEvents(true);
 		item.setZValue(20);

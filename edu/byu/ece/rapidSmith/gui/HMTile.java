@@ -23,12 +23,12 @@ package edu.byu.ece.rapidSmith.gui;
 
 import java.io.File;
 
-import com.trolltech.qt.gui.QBitmap;
-import com.trolltech.qt.gui.QBrush;
-import com.trolltech.qt.gui.QColor;
-import com.trolltech.qt.gui.QGraphicsItemInterface;
-import com.trolltech.qt.gui.QGraphicsRectItem;
-import com.trolltech.qt.gui.QPen;
+import io.qt.gui.QBitmap;
+import io.qt.gui.QBrush;
+import io.qt.gui.QColor;
+import io.qt.widgets.QGraphicsItem;
+import io.qt.widgets.QGraphicsRectItem;
+import io.qt.gui.QPen;
 import edu.byu.ece.rapidSmith.device.Tile;
 import edu.byu.ece.rapidSmith.gui.TileScene;
 import edu.byu.ece.rapidSmith.util.FileTools;
@@ -52,7 +52,7 @@ public class HMTile extends QGraphicsRectItem {
 	
 	
 		
-	public HMTile(Tile newTile, TileScene scene, QGraphicsItemInterface parent, boolean hasSLICEM, boolean isAnchor)
+	public HMTile(Tile newTile, TileScene scene, QGraphicsItem parent, boolean hasSLICEM, boolean isAnchor)
 	{
 		super(0,0,scene.tileSize - 2, scene.tileSize - 2, parent);
 		this.tile = newTile;
@@ -61,7 +61,7 @@ public class HMTile extends QGraphicsRectItem {
 		
 	}
 	
-	public HMTile(Tile newTile, TileScene scene, QGraphicsItemInterface parent)
+	public HMTile(Tile newTile, TileScene scene, QGraphicsItem parent)
 	{
 		this(newTile,scene,parent,false,false);
 	}

@@ -24,15 +24,16 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Queue;
 
-import com.trolltech.qt.core.Qt.MouseButton;
-import com.trolltech.qt.core.Qt.PenStyle;
-import com.trolltech.qt.gui.QAction;
-import com.trolltech.qt.gui.QBrush;
-import com.trolltech.qt.gui.QColor;
-import com.trolltech.qt.gui.QGraphicsLineItem;
-import com.trolltech.qt.gui.QGraphicsSceneMouseEvent;
-import com.trolltech.qt.gui.QMenu;
-import com.trolltech.qt.gui.QPen;
+import io.qt.core.Qt;
+import io.qt.core.Qt.MouseButton;
+import io.qt.core.Qt.PenStyle;
+import io.qt.gui.QAction;
+import io.qt.gui.QBrush;
+import io.qt.gui.QColor;
+import io.qt.widgets.QGraphicsLineItem;
+import io.qt.widgets.QGraphicsSceneMouseEvent;
+import io.qt.widgets.QMenu;
+import io.qt.gui.QPen;
 
 import edu.byu.ece.rapidSmith.device.Device;
 import edu.byu.ece.rapidSmith.device.Tile;
@@ -50,7 +51,7 @@ public class DeviceBrowserScene extends TileScene{
 	/**	 */
 	private WireEnumerator we;
 	/**	 */
-	public Signal1<Tile> updateTile = new Signal1<Tile>();
+	public final Signal1<Tile> updateTile = new Signal1<Tile>();
 	/**	 */
 	private QPen wirePen;
 	/**	 */
@@ -67,7 +68,7 @@ public class DeviceBrowserScene extends TileScene{
 		super(device, hideTiles, drawPrimitives);
 		setWireEnumerator(we);
 		currLines = new ArrayList<QGraphicsLineItem>();
-		wirePen = new QPen(QColor.yellow, 0.25, PenStyle.SolidLine);
+		wirePen = new QPen(new QColor(Qt.GlobalColor.yellow), 0.25, PenStyle.SolidLine);
 		this.browser = browser;
 	}
 	
