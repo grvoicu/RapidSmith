@@ -109,8 +109,8 @@ public class DeviceBrowser extends QMainWindow{
 			MessageGenerator.briefErrorAndExit("Error: No available parts. " +
 					"Please generate part database files.");
 		}
-		if(parts.contains("xc4vlx100ff1148")){
-			currPart = "xcv50tq144"; // "xc4vlx100ff1148";
+		if(parts.contains("xc3s1200efg320")){
+			currPart = "xc3s1200efg320"; // "xcv50tq144"; // "xc4vlx100ff1148";
 		}
 		else{
 			currPart = parts.get(0);
