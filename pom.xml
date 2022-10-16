@@ -110,5 +110,28 @@
         </plugin>
       </plugins>
     </pluginManagement>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <executions>
+          <execution>
+            <phase>package</phase>
+            <goals>
+              <goal>single</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+          <archive>
+            <manifest>
+              <!-- <addClasspath>true</addClasspath> -->
+              <!-- <mainClass>edu.byu.ece.rapidSmith.device.browser.DeviceBrowser</mainClass> -->
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
