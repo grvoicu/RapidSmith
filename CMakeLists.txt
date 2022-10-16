@@ -24,4 +24,7 @@ find_package( Qt6Widgets REQUIRED )
 #     QtGui.framework -> /usr/local/lib/QtGui.framework/ 
 #     QtWidgets.framework -> /usr/local/lib/QtWidgets.framework/ 
 
+add_custom_target( javadoc mvn javadoc:javadoc )
+
 add_custom_target( device_browse RAPIDSMITH_PATH=${RAPIDSMITH_PATH} ${JAVA} ${JAVA_OPTS} -cp ${JAR_FILE} ${JAVA_PACKAGE}.device.browser.DeviceBrowser)
+
