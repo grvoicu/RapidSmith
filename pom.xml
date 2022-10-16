@@ -110,6 +110,46 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <!-- <addClasspath>true</addClasspath> -->
+              <!-- <classpathPrefix>./dependency/</classpathPrefix> -->
+              <!-- <mainClass>edu.byu.ece.rapidSmith.device.browser.DeviceBrowser</mainClass> -->
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+      <!-- <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+          <version>3.1.0</version>
+         <executions>
+          <execution>
+            <phase>test</phase>
+            <goals>
+              <goal>java</goal>
+            </goals>
+            <configuration>
+              <mainClass>edu.byu.ece.rapidSmith.device.browser.DeviceBrowser</mainClass>
+              <systemProperties>
+                <systemProperty>
+                  <key>java.library.path</key>
+                  <value>./target/thin-libs:/usr/local:/usr/local/lib</value>
+                </systemProperty>
+                <systemProperty>
+                  <key>io.qt.verbose-loading</key>
+                  <value>true</value>
+                </systemProperty>
+                </systemProperties>
+            </configuration>
+          </execution> 
+        </executions>
+      </plugin>  -->
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <executions>
