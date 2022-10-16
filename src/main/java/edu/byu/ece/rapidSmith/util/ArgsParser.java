@@ -34,8 +34,8 @@ import java.util.List;
  * OPTION... [+$?] [default-value]
  *
  * OPTION :
- *   -<character> specifies a short-form option
- *   --<string> specifies a long-form option, separate word with '-'
+ *   {@code -<character>} specifies a short-form option
+ *   {@code --<string>} specifies a long-form option, separate word with '-'
  *   Options are separated by a space
  *
  * $ and ? characters indicate if the options expect accompanying values

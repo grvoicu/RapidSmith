@@ -32,7 +32,7 @@ public class SinkPin implements Serializable{
 	/** Keeps track of the wire which drives this sink from the nearest switch matrix */
 	public int switchMatrixSinkWire;
 	
-	/** Keeps track of the switch matrix which drives this sink <31-16: X Tile Offset, 15-0: Y Tile Offset> */
+	/** Keeps track of the switch matrix which drives this sink {@code <31-16: X Tile Offset, 15-0: Y Tile Offset>} */
 	public int switchMatrixTileOffset;
 	
 	/**

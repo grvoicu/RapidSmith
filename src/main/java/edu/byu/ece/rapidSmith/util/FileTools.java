@@ -523,10 +523,10 @@ public class FileTools {
 	
 	/**
 	 * This is a simple method that will read in a text file and put each line in a
-	 * string and put all the lines in an ArrayList.  The user is cautioned not
+	 * string and put all the lines in an {@code ArrayList}. The user is cautioned not
 	 * to open extremely large files with this method.
-	 * @param fileName Name of the text file to load into the ArrayList<String>.
-	 * @return An ArrayList containing strings of each line in the file. 
+	 * @param fileName Name of the text file to load into the {@code ArrayList<String>}.
+	 * @return An {@code ArrayList} containing strings of each line in the file.
 	 */
 	public static ArrayList<String> getLinesFromTextFile(String fileName){
 		String line = null;

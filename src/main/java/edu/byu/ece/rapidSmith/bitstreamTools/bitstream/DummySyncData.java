@@ -23,7 +23,7 @@ import java.util.List;
 
 /**
  * Represents the dummy sync data found in Xilinx bitstreams. This object contains
- * a List<Byte> member that holds all of the sync data. This class contains two
+ * a {@code List<Byte>} member that holds all of the sync data. This class contains two
  * prebuilt static DummySyncData objects for V5 and V6.
  * 
  * TODO: Create separate classes for V4 sync data vs. v5/v6 sync data

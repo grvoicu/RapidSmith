@@ -23,10 +23,10 @@ import java.io.Serializable;
 import edu.byu.ece.rapidSmith.router.Node;
 
 /**		
- * A Wire is describes simply as an integer representing the wire and
+ * A Wire is described simply as an integer representing the wire and
  * a row/column tile offset from the source wire. It makes little sense
- * by itself and is only understood in the context of the HashMap found in
- * Tile.HashMap<Integer,Wire[]> which provides all of the wire connections
+ * by itself and is only understood in the context of the {@code HashMap} found in
+ * {@code Tile.HashMap<Integer,Wire[]>} which provides all of the wire connections
  * from a wire existing to an array of Wire objects which describe wires 
  * that maybe in the same tile or other tiles nearby depending on the 
  * row and column offset.  These connections also may be PIP connections

@@ -80,7 +80,7 @@ public class BitstreamOptionParser extends OptionParser {
 	public static final String DEBUG_OPTION = "debug";
 	public static final String DEBUG_OPTION_HELP = "Print additional debug commands";
 	
-	/** Add an input bitstream option: -i <bitstream file name>
+	/** Add an input bitstream option: {@code -i <bitstream file name>}
 	 */
 	public void addInputBitstreamOption() {
 		addBitstreamOption(INPUT_BITSTREAM_OPTION);
