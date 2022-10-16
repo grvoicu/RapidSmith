@@ -124,7 +124,6 @@ public class DesignExplorer extends QMainWindow{
 	
 	
 	public static void main(String[] args){
-		//QApplication.setGraphicsSystem("raster");
 		QApplication.initialize(args);
 
 		String fileToOpen = null;
