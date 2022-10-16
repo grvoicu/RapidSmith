@@ -39,6 +39,23 @@ import io.qt.widgets.QToolBar;
 import io.qt.widgets.QWidget;
 import io.qt.gui.QKeySequence.StandardKey;
 
+// import io.qt.core.Qt.WindowModality;
+// import io.qt.gui.QAction;
+// import io.qt.widgets.QApplication;
+// import io.qt.widgets.QFileDialog;
+// import io.qt.gui.QIcon;
+// import io.qt.gui.QKeySequence;
+// import io.qt.widgets.QLabel;
+// import io.qt.widgets.QMainWindow;
+// import io.qt.widgets.QMenu;
+// import io.qt.widgets.QMessageBox;
+// import io.qt.widgets.QProgressDialog;
+// import io.qt.widgets.QStatusBar;
+// import io.qt.widgets.QTabWidget;
+// import io.qt.widgets.QToolBar;
+// import io.qt.widgets.QWidget;
+// import io.qt.gui.QKeySequence.StandardKey;
+
 import edu.byu.ece.rapidSmith.design.Design;
 import edu.byu.ece.rapidSmith.design.explorer.FilterWindow.FilterType;
 import edu.byu.ece.rapidSmith.device.Device;
@@ -107,6 +124,7 @@ public class DesignExplorer extends QMainWindow{
 	
 	
 	public static void main(String[] args){
+		//QApplication.setGraphicsSystem("raster");
 		QApplication.initialize(args);
 
 		String fileToOpen = null;

@@ -998,6 +998,7 @@ public class FileTools {
 					Installer.class.getCanonicalName() +" to create part files.");
 		}
 		for(String partFamily : dir.list()){
+			// System.out.println(dir.getAbsolutePath() + File.separator + partFamily);
 			File partDir = new File(dir.getAbsolutePath() + File.separator + partFamily);
 			for(String part : partDir.list()){
 				if(part.endsWith(pattern)){

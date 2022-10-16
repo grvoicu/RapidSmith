@@ -67,6 +67,7 @@ public class PartTileBrowser extends QMainWindow{
 	 */
 	public static void main(String[] args){
 		// This line fixes slow performance under Linux
+		//QApplication.setGraphicsSystem("raster");
 		
 		QApplication.initialize(args);
 		PartTileBrowser testPTB = new PartTileBrowser(null);

@@ -85,6 +85,7 @@ public class DeviceBrowser extends QMainWindow{
 	 * @param args
 	 */
 	public static void main(String[] args){
+		//QApplication.setGraphicsSystem("raster");
 		QApplication.initialize(args);
 		DeviceBrowser testPTB = new DeviceBrowser(null);
 		testPTB.show();
@@ -110,7 +111,7 @@ public class DeviceBrowser extends QMainWindow{
 					"Please generate part database files.");
 		}
 		if(parts.contains("xc4vlx100ff1148")){
-			currPart = "xc4vlx100ff1148";
+			currPart = "xcv50tq144"; // "xc4vlx100ff1148";
 		}
 		else{
 			currPart = parts.get(0);
