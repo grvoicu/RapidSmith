@@ -47,13 +47,6 @@
     </dependency>
 
     <dependency>
-      <groupId>io.qtjambi</groupId>
-      <artifactId>qtjambi-native-macos</artifactId>
-      <version>6.3.5</version>
-      <scope>runtime</scope>
-    </dependency>
-
-    <dependency>
       <groupId>com.caucho</groupId>
       <artifactId>hessian</artifactId>
       <version>4.0.66</version>
