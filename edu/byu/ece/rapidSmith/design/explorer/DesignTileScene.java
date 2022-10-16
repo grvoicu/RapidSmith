@@ -21,11 +21,12 @@ package edu.byu.ece.rapidSmith.design.explorer;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-import com.trolltech.qt.core.Qt.PenStyle;
-import com.trolltech.qt.gui.QBrush;
-import com.trolltech.qt.gui.QColor;
-import com.trolltech.qt.gui.QPainterPath;
-import com.trolltech.qt.gui.QPen;
+import io.qt.core.Qt;
+import io.qt.core.Qt.PenStyle;
+import io.qt.gui.QBrush;
+import io.qt.gui.QColor;
+import io.qt.gui.QPainterPath;
+import io.qt.gui.QPen;
 
 import edu.byu.ece.rapidSmith.device.Device;
 import edu.byu.ece.rapidSmith.device.WireEnumerator;
