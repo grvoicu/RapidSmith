@@ -46,7 +46,7 @@ public class PartTileBrowserScene extends QGraphicsScene {
 	int tileSize, numCols, numRows;
 	double lineWidth;
 	Device device;
-	public Signal0 updateStatus = new Signal0();
+	public final Signal0 updateStatus = new Signal0();
 	private QGraphicsRectItem highlit;
 	private QImage qImage;
 
