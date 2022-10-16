@@ -26,5 +26,8 @@ find_package( Qt6Widgets REQUIRED )
 
 add_custom_target( javadoc mvn javadoc:javadoc )
 
-add_custom_target( device_browse RAPIDSMITH_PATH=${RAPIDSMITH_PATH} ${JAVA} ${JAVA_OPTS} -cp ${JAR_FILE} ${JAVA_PACKAGE}.device.browser.DeviceBrowser)
+set( RUN_PREFIX RAPIDSMITH_PATH=${RAPIDSMITH_PATH} ${JAVA} ${JAVA_OPTS} -cp ${JAR_FILE} ${JAVA_PACKAGE} )
 
+add_custom_target( device_browse ${RUN_PREFIX}.device.browser.DeviceBrowser )
+add_custom_target( design_explorer ${RUN_PREFIX}.design.explorer.DesignExplorer )
+add_custom_target( tile_browse ${RUN_PREFIX}.examples.PartTileBrowser )
