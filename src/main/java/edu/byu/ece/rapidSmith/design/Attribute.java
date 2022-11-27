@@ -31,7 +31,7 @@ import java.io.Serializable;
  * in a standard Map, the multiple logical and value strings are stored in a single
  * string and are separated by the final multiValueSeparator character. A variety
  * of methods are available for determining whether the attribute is multi-valued
- * and accesing the multi-value fields.
+ * and accessing the multi-value fields.
  * 
  * @author Chris Lavin
  * Created on: Jun 22, 2010

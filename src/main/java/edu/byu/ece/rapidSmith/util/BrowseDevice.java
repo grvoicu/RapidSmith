@@ -52,7 +52,7 @@ public class BrowseDevice{
 					case 1:
 						System.out.println("Enter tile name: ");
 						t = dev.getTile(br.readLine().trim());
-						System.out.println("Choosen Tile: " + t.getName());
+						System.out.println("Chosen Tile: " + t.getName());
 
 						System.out.println("Enter wire name: ");
 						String wire = br.readLine().trim();
@@ -80,7 +80,7 @@ public class BrowseDevice{
 					case 4:
 						System.out.println("Enter start tile name: ");
 						t = dev.getTile(br.readLine().trim());
-						System.out.println("Choosen start tile: " + t.getName());
+						System.out.println("Chosen start tile: " + t.getName());
 
 						System.out.println("Enter start wire name: ");
 						String startWire = br.readLine().trim();
@@ -116,7 +116,7 @@ public class BrowseDevice{
 					case 5:
 						System.out.println("Enter tile name: ");
 						t = dev.getTile(br.readLine().trim());
-						System.out.println("Choosen Tile: " + t.getName());
+						System.out.println("Chosen Tile: " + t.getName());
 
 						if(t.getPrimitiveSites() == null){
 							System.out.println(t.getName() + " has no primitive sites.");

@@ -220,7 +220,7 @@ public class DeviceFilesCreator{
 			}
 			else{
 				MessageGenerator.briefMessage("Warning: existing device file for " + partName +
-					" is not compatible with current version of tools.  Overwritting the existing" +
+					" is not compatible with current version of tools. Overwriting the existing" +
 					" file with new version.");
 			}
 		}
@@ -398,7 +398,7 @@ public class DeviceFilesCreator{
 			if (tile.getWireHashMap() == null)
 				continue;
 
-			// Create a safe copy to playaround with without messing up any other tiles wires
+			// Create a safe copy to play around with without messing up any other tiles wires
 			WireHashMap whm = new WireHashMap(tile.getWireHashMap());
 
 			// Traverse all non-PIP wire connections starting at this source wire.  If any
